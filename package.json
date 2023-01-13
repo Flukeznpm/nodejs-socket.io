@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Flukeznpm/nodejs-socket.io#readme",
   "dependencies": {
     "diskspace": "^2.0.0",
+    "ejs": "^3.1.8",
     "express": "^4.15.2",
     "socket.io": "^4.5.4"
   }
