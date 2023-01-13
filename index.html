@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html>
 
 <head>
@@ -39,6 +39,50 @@
 			$('#disk').html(data.percentageDisk + " %");
 		});
 	</script>
+</body>
+
+</html> -->
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Socket IO</title>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+	<script>
+		$(() => {
+			var socket = io();
+
+			$('form').submit(() => {
+				// Send message to server
+				socket.emit('chat message', $('#m').val());
+				$("#m").val('');
+				return false;
+			});
+
+			// Lister message from server
+			socket.on('chat message', (msg) => {
+				$('#messages').append($('<li>').text(msg));
+			});
+		});
+
+	</script>
+</head>
+
+<body>
+	<form action="">
+		<ul id="messages"></ul>
+		<input id="m" autocomplete="off" /><button>Send</button>
+	</form>
 </body>
 
 </html>
